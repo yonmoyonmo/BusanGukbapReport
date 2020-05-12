@@ -1,0 +1,9 @@
+body article {
+  background-color: burlywood;
+  margin: 2%;
+  padding: 5%;
+}
+body .editor_form {
+  background-color: rgb(245, 235, 219);
+  margin: 5%;
+}
