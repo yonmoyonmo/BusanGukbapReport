@@ -4,7 +4,7 @@ from .forms import *
 
 
 def main(req):
-    posts = Report.objects.filter(
+    posts = Report2.objects.filter(
         pub_date__lte=timezone.now()).order_by('-pub_date')
     return render(req, 'main.html', {'posts': posts})
 

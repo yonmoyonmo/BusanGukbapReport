@@ -18,23 +18,61 @@ class Report(models.Model):
     pub_date = models.DateTimeField(timezone.now(), null=True)
     author = models.CharField(max_length=100)
     content = models.TextField()
-
     fullshot = ResizedImageField(
         upload_to=user_path, quality=75, blank=True, null=True
     )
+
     detailshot = ResizedImageField(
         upload_to=user_path, quality=75, blank=True, null=True
     )
+
     menushot = ResizedImageField(
         upload_to=user_path, quality=75, blank=True, null=True
     )
 
     youtubelink = models.TextField()
 
+    location = models.CharField(max_length=50)
     lat = models.FloatField()
     lng = models.FloatField()
 
+    gukmool = models.IntegerField()
+    gogi = models.IntegerField()
+    kimchi = models.IntegerField()
+    service = models.IntegerField()
+    weesaeng = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+
+class Report2(models.Model):
+    title = models.CharField(max_length=100)
+    pub_date = models.DateTimeField(timezone.now(), null=True)
+    author = models.CharField(max_length=100)
+    content = models.TextField()
+
+    thumbnail = ResizedImageField(
+        upload_to=user_path, quality=75, blank=True, null=True
+    )
+    fullshot = ResizedImageField(
+        upload_to=user_path, quality=75, blank=True, null=True
+    )
+    fullshot_caption = models.CharField(max_length=200)
+    detailshot = ResizedImageField(
+        upload_to=user_path, quality=75, blank=True, null=True
+    )
+    detailshot_caption = models.CharField(max_length=200)
+    menushot = ResizedImageField(
+        upload_to=user_path, quality=75, blank=True, null=True
+    )
+    menushot_caption = models.CharField(max_length=200)
+
+    youtubelink = models.TextField()
+
     location = models.CharField(max_length=50)
+    lat = models.FloatField()
+    lng = models.FloatField()
 
     gukmool = models.IntegerField()
     gogi = models.IntegerField()
