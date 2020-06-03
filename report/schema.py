@@ -1,15 +1,69 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-from report.models import Report2
+from report.models import *
 
 
-class ReportType(DjangoObjectType):
+class Report3Type(DjangoObjectType):
     class Meta:
-        model = Report2
+        model = Report3
+
+
+class ReportImagesType(DjangoObjectType):
+    class Meta:
+        model = ReportImages
+
+
+class GukmoolType(DjangoObjectType):
+    class Meta:
+        model = Gukmool
+
+
+class GoguiType(DjangoObjectType):
+    class Meta:
+        model = Gogui
+
+
+class KimchiType(DjangoObjectType):
+    class Meta:
+        model = Kimchi
+
+
+class ServiceType(DjangoObjectType):
+    class Meta:
+        model = Service
+
+
+class WeesaengType(DjangoObjectType):
+    class Meta:
+        model = Weesaeng
 
 
 class Query(object):
-    all_reports = graphene.List(ReportType)
+    all_reports = graphene.List(Report3Type)
+    all_images = graphene.List(ReportImagesType)
+    all_gukmools = graphene.List(GukmoolType)
+    all_goguis = graphene.List(GoguiType)
+    all_kimchis = graphene.List(KimchiType)
+    all_services = graphene.List(ServiceType)
+    all_weesaengs = graphene.List(WeesaengType)
 
     def resolve_all_reports(self, info, **kwargs):
-        return Report2.objects.all()
+        return Report3.objects.all()
+
+    def resolve_all_images(self, info, **kwargs):
+        return ReportImages.objects.all()
+
+    def resolve_all_gukmools(self, info, **kwargs):
+        return Gukmool.objects.all()
+
+    def resolve_all_goguis(self, info, **kwargs):
+        return Gogui.objects.all()
+
+    def resolve_all_kimchis(self, info, **kwargs):
+        return Kimchi.objects.all()
+
+    def resolve_all_services(self, info, **kwargs):
+        return Service.objects.all()
+
+    def resolve_all_weesaengs(self, info, **kwargs):
+        return Weesaeng.objects.all()

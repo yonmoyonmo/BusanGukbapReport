@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>THIS SITE IS BEEING DEVELOPED</h1>
+
+<article class="single">
+  <h3>{{ post.title }}</h3>
+  <p>{{post.author}}</p>
+  <p>{{ post.pub_date }}</p>
+  <p>{{ post.content }}</p>
+  <p>{{ post.youtubelink }}</p>
+  <p>{{ post.address }}</p>
+
+  {%if post.Images%}
+  <div>
+    {% for image in post.Images.all %}
+    <p><img src="{{ image }}" /></p>
+    {% empty %}
+    <p>no images</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {%if post.gukmools %}
+  <h2>곡물</h2>
+  <div>
+    {% for g in post.gukmools.all %}
+    <p>{{ g.yuksu }}</p>
+    <p>{{ g.yeomdo }}</p>
+    <p>{{ g.hexColor }}</p>
+    <p>{{ g.saewoo }}</p>
+    <p>{{ g.salt }}</p>
+    <p>{{ g.blackPepper }}</p>
+    <p>{{ g.toRyeom }}</p>
+    <p>{{ g.yangNyeomJang }}</p>
+    <p>{{ g.ddaroGukbap }}</p>
+    <p>{{ g.NETgukbap }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {%if post.goguis %}
+  <h2>꼬기</h2>
+  <div>
+    {% for go in post.goguis.all %}
+    <p>{{ go.meatPart }}</p>
+    <p>{{ go.texture }}</p>
+    <p>{{ go.thickness }}</p>
+    <p>{{ go.smell }}</p>
+    <p>{{ go.dippingSource }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{%if post.kimchis %}
+<h2>김취</h2>
+  <div>
+    {% for k in post.kimchis.all %}
+    <p>{{ k.spicy }}</p>
+    <p>{{ k.banchan }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {%if post.services %}
+  <h2>서비서</h2>
+  <div>
+    {% for s in post.services.all %}
+    <p>{{ s.banchanTime }}</p>
+    <p>{{ s.gukbaptime }}</p>
+    <p>{{ s.kindness }}</p>
+    <p>{{ s.banchanRefill }}</p>
+    <p>{{ s.selfServing }}</p>
+    <p>{{ s.gukmulRefill }}</p>
+    <p>{{ s.dessert }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{%if post.weesaeng %}
+<h2>위생</h2>
+  <div>
+    {% for w in post.weesaeng.all %}
+    <p>{{ w.floor }}</p>
+    <p>{{ w.table }}</p>
+    <p>{{ w.spoons }}</p>
+    <p>{{ w.cups }}</p>
+    <p>{{ w.kitchen }}</p>
+    <p>{{ w.tissue }}</p>
+    <p>{{ w.toilets }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</article>
+{% endblock %}

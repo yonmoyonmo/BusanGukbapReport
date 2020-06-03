@@ -6,6 +6,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.main, name='main'),
-    path(r'editor/', views.editor, name='editor'),
+    path('single/<int:pk>', views.single, name='single'),
+    path('editor/', views.editor, name='editor'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
