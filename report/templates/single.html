@@ -18,9 +18,7 @@
     <p>no images</p>
     {% endfor %}
   </div>
-  {% endif %}
-
-  {%if post.gukmools %}
+  {% endif %} {%if post.gukmools %}
   <h2>곡물</h2>
   <div>
     {% for g in post.gukmools.all %}
@@ -38,9 +36,7 @@
     <p>no</p>
     {% endfor %}
   </div>
-  {% endif %}
-
-  {%if post.goguis %}
+  {% endif %} {%if post.goguis %}
   <h2>꼬기</h2>
   <div>
     {% for go in post.goguis.all %}
@@ -53,10 +49,8 @@
     <p>no</p>
     {% endfor %}
   </div>
-  {% endif %}
-
-{%if post.kimchis %}
-<h2>김취</h2>
+  {% endif %} {%if post.kimchis %}
+  <h2>김취</h2>
   <div>
     {% for k in post.kimchis.all %}
     <p>{{ k.spicy }}</p>
@@ -65,9 +59,7 @@
     <p>no</p>
     {% endfor %}
   </div>
-  {% endif %}
-
-  {%if post.services %}
+  {% endif %} {%if post.services %}
   <h2>서비서</h2>
   <div>
     {% for s in post.services.all %}
@@ -82,12 +74,10 @@
     <p>no</p>
     {% endfor %}
   </div>
-  {% endif %}
-
-{%if post.weesaeng %}
-<h2>위생</h2>
+  {% endif %} {%if post.weesaengs %}
+  <h2>위생</h2>
   <div>
-    {% for w in post.weesaeng.all %}
+    {% for w in post.weesaengs.all %}
     <p>{{ w.floor }}</p>
     <p>{{ w.table }}</p>
     <p>{{ w.spoons }}</p>
@@ -99,7 +89,16 @@
     <p>no</p>
     {% endfor %}
   </div>
+  {% endif %} {%if post.latlngs %}
+  <h2>latlng</h2>
+  <div>
+    {% for l in post.latlngs.all %}
+    <p>{{ l.lat }}</p>
+    <p>{{ l.lng }}</p>
+    {% empty %}
+    <p>no</p>
+    {% endfor %}
+  </div>
   {% endif %}
-
 </article>
 {% endblock %}

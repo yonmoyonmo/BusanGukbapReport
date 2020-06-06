@@ -25,6 +25,7 @@ def editor(req):
         kf = KimchiForm(req.POST)
         sf = ServiceForm(req.POST)
         wf = WeesaengForm(req.POST)
+        ll = LatlngForm(req.POST)
 
         formset = ImageFormSet(
             req.POST,
@@ -32,7 +33,7 @@ def editor(req):
             queryset=ReportImages.objects.none()
         )
 
-        if reportForm.is_valid() and formset.is_valid() and gukmoolForm.is_valid() and gf.is_valid() and kf.is_valid() and sf.is_valid() and wf.is_valid():
+        if reportForm.is_valid() and formset.is_valid() and gukmoolForm.is_valid() and gf.is_valid() and kf.is_valid() and sf.is_valid() and wf.is_valid() and ll.is_valid():
             post = reportForm.save(commit=False)
             post.pub_date = timezone.now()
             post.save()
@@ -62,6 +63,10 @@ def editor(req):
             ww.report = post
             ww.save()
 
+            ltlt = ll.save(commit=False)
+            ltlt.report = post
+            ltlt.save()
+
             return redirect('/')
     else:
         reportForm = ReportForm()
@@ -70,10 +75,11 @@ def editor(req):
         kf = KimchiForm()
         sf = ServiceForm()
         wf = WeesaengForm()
+        ll = LatlngForm()
         formset = ImageFormSet(queryset=ReportImages.objects.none())
     return render(
         req, 'editor.html',
         {
             'reportForm': reportForm, 'formset': formset, 'gukmoolForm': gukmoolForm,
-            'gf': gf, 'kf': kf, 'sf': sf, 'wf': wf,
+            'gf': gf, 'kf': kf, 'sf': sf, 'wf': wf, 'll': ll,
         })

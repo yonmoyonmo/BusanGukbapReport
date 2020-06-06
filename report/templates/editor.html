@@ -1,35 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} 
+{% block content %} 
 {% load crispy_forms_tags %}
 <div class="editor_form">
   <form id="report_form" method="post" action="" enctype="multipart/form-data">
-
-    {% csrf_token %}
-    {{ reportForm|crispy }} <br>
-    <br>
-    <br>
+    {% csrf_token %} 
+    {{ reportForm|crispy }} <br />
+    <br />
+    <br />
     {{ gukmoolForm }}
-    <br>
-    <br>
+    <br />
+    <br />
     {{ gf }}
-    <br>
-    <br>
+    <br />
+    <br />
     {{ kf }}
-    <br>
-    <br>
+    <br />
+    <br />
     {{ sf }}
-    <br>
-    <br>
+    <br />
+    <br />
     {{ wf }}
-    <br>
-    <br>
-    {{ formset.management_form }}
-    {% for form in formset %}
-        {{ form|crispy }}
+    <br />
+    <br />
+    {{ll}}
+    <br />
+    <br />
+    {{ formset.management_form }} 
+    {% for form in formset %} 
+    {{ form|crispy }} 
     {% endfor %}
-
-
     <input type="submit" name="submit" value="Submit" />
-</form>
+  </form>
 </div>
 {% endblock %}

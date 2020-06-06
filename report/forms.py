@@ -57,3 +57,9 @@ class WeesaengForm(forms.ModelForm):
         fields = [
             'floor', 'table', 'spoons',
             'cups', 'kitchen', 'tissue', 'toilets', ]
+
+
+class LatlngForm(forms.ModelForm):
+    class Meta:
+        model = Latlng
+        fields = ['lat', 'lng']

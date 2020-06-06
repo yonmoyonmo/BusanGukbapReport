@@ -273,7 +273,7 @@ class Service(models.Model):
 
 class Weesaeng(models.Model):
     report = models.ForeignKey(
-        'Report3', on_delete=models.CASCADE, related_name="weesaeng")
+        'Report3', on_delete=models.CASCADE, related_name="weesaengs")
     SIMPLE_TMB_CHOICES = [
         ('3', '상'),
         ('2', '중'),
@@ -286,6 +286,17 @@ class Weesaeng(models.Model):
     kitchen = models.CharField(max_length=10, choices=SIMPLE_TMB_CHOICES)
     tissue = models.CharField(max_length=10, choices=SIMPLE_TMB_CHOICES)
     toilets = models.CharField(max_length=10, choices=SIMPLE_TMB_CHOICES)
+
+    def __str__(self):
+        return self.report.title
+
+
+class Latlng(models.Model):
+    report = models.ForeignKey(
+        'Report3', on_delete=models.CASCADE, related_name="latlngs")
+
+    lat = models.FloatField()
+    lng = models.FloatField()
 
     def __str__(self):
         return self.report.title

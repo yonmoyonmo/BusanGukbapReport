@@ -38,6 +38,11 @@ class WeesaengType(DjangoObjectType):
         model = Weesaeng
 
 
+class LatlngType(DjangoObjectType):
+    class Meta:
+        model = Latlng
+
+
 class Query(object):
     all_reports = graphene.List(Report3Type)
     all_images = graphene.List(ReportImagesType)
@@ -46,6 +51,7 @@ class Query(object):
     all_kimchis = graphene.List(KimchiType)
     all_services = graphene.List(ServiceType)
     all_weesaengs = graphene.List(WeesaengType)
+    all_Latlng = graphene.List(LatlngType)
 
     def resolve_all_reports(self, info, **kwargs):
         return Report3.objects.all()
@@ -67,3 +73,6 @@ class Query(object):
 
     def resolve_all_weesaengs(self, info, **kwargs):
         return Weesaeng.objects.all()
+
+    def resolve_all_Latlngs(self, info, **kwargs):
+        return Latlng.objects.all()
