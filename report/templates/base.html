@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
+    {% if user.is_authenticated %}
     <header>
       OnlypenStudio
     </header>
@@ -40,5 +41,8 @@
     <footer>
       Busan Gukbap Report
     </footer>
+    {% else %}
+    <a href="/admin">login</a>
+    {% endif %}
   </body>
 </html>
