@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %} {% for post in posts %}
+<article class="list">
+  <h3><a href="{% url 'single' pk=post.pk %}">{{ post.title }}</a></h3>
+  <div></div>
+</article>
+{% endfor %} {% endblock %}

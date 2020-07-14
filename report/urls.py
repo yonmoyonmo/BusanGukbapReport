@@ -8,5 +8,6 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('single/<int:pk>', views.single, name='single'),
     path('editor/', views.editor, name='editor'),
+    path('data/', views.data, name='data'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

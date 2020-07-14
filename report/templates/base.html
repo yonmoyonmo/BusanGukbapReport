@@ -33,16 +33,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    {% if user.is_authenticated %}
-    <header>
-      OnlypenStudio
-    </header>
-    {% block content %} {% endblock %}
-    <footer>
-      Busan Gukbap Report
-    </footer>
-    {% else %}
-    <a href="/admin">login</a>
-    {% endif %}
+  <h1>This site is beeing developed...</h2>
+    {% block content %}
+    {% endblock %}
   </body>
 </html>

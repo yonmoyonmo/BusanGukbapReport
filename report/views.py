@@ -3,12 +3,17 @@ from .models import *
 from .forms import *
 from django.forms.models import modelformset_factory
 from django.template import RequestContext
+from django.contrib.auth.decorators import permission_required
+
+
+def data(req):
+    posts = Report3.objects.filter(
+        pub_date__lte=timezone.now()).order_by('-pub_date')
+    return render(req, 'data.html', {'posts': posts})
 
 
 def main(req):
-    posts = Report3.objects.filter(
-        pub_date__lte=timezone.now()).order_by('-pub_date')
-    return render(req, 'main.html', {'posts': posts})
+    return render(req, 'main.html')
 
 
 def single(req, pk):
@@ -16,6 +21,7 @@ def single(req, pk):
     return render(req, 'single.html', {'post': post})
 
 
+@permission_required('auth.add_group', raise_exception=True)
 def editor(req):
     ImageFormSet = modelformset_factory(ReportImages, form=ImageForm, extra=5)
     if req.method == "POST":

@@ -1,17 +1,36 @@
 {% extends 'base.html' %} {% block content %}
+<h1></h1>
+<div class="bar">
+  <div class="nav">
+    <p><a href="graphqlapi/">GraphQL API</a></p>
+  </div>
+  <div class="nav">
+    <p><a href="editor/">Editor</a></p>
+  </div>
+  <div class="nav">
+    <p><a href="data/">Data</a></p>
+  </div>
+</div>
+{% load static %}
+<div class="mainLogo">
+  <img
+    src="{% static 'img/main.jpg' %}"
+    class="mainImg"
+    onmouseover="zoomIn(event)"
+    onmouseout="zoomOut(event)"
+  />
+</div>
+<script>
+  function zoomIn(event) {
+    event.target.style.transform = "scale(1.1)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+  }
 
-<h1>THIS SITE IS BEEING DEVELOPED</h1>
-<p><a href="graphqlapi/">GraphQL API</a></p>
-<p><a href="editor/">editor</a></p>
-{% for post in posts %}
-<article class="list">
-  <h3><a href="{% url 'single' pk=post.pk %}">{{ post.title }}</a></h3>
-  <p>{{post.author}}</p>
-  <p>{{ post.pub_date }}</p>
-  <p>{{ post.content }}</p>
-  <p>{{ post.youtubelink }}</p>
-  <p>{{ post.address }}</p>
-  <p>{{ post.Images.all }}</p>
-  <div></div>
-</article>
-{% endfor %} {% endblock %}
+  function zoomOut(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+  }
+</script>
+{% endblock %}

@@ -1,9 +1,27 @@
-body article {
-  background-color: burlywood;
-  margin: 2%;
-  padding: 5%;
+.mainLogo {
+  text-align: center;
 }
-body .editor_form {
-  background-color: rgb(245, 235, 219);
-  margin: 5%;
+.nav {
+  display: inline-block;
+  text-align: center;
+  margin: 2%;
+  padding: 2%;
+}
+.bar {
+  text-align: center;
+}
+body {
+  margin: 2%;
+  padding: 2%;
+}
+.mainImg {
+  width: 70%;
+  height: 70%;
+}
+.single {
+  background-color: rgb(200, 214, 241);
+  text-align: center;
+}
+.single img {
+  display: inline;
 }
